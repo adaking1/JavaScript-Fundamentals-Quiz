@@ -1,0 +1,23 @@
+
+body header {
+    font-size: 25px;
+}
+form {
+    border: 9px solid rebeccapurple;
+
+    text-align: center;
+    width: 45%;
+    height: 45%;
+    margin:125px auto;
+}
+
+h1 {
+    font-size: 50px;
+    padding: 5px 25px 40px 25px;
+}
+
+.submit-button {
+    margin: 20px;
+    padding: 5px;
+    font-weight: bold
+}

@@ -4,28 +4,33 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>JavaScript Fundamentals Quiz</title>
-        <link rel="stylesheet" href="./assets/style.css" />
+        <link rel="stylesheet" href="./assets/reset.css"/>
+        <link rel="stylesheet" href="./assets/style.css"/>
     </head>
 
     <body>
         <header>
-            <p id="high-scores">View Highscores</p>
-            <p id="timer"></p>
+            <p id="highscores">View Highscores</p>
+            <p id="timer" style="text-align:end;"></p>
         </header>
-        <section class=" container">
-            <h1 id="title-questions"></h1>
-            <ol>
+        <form class=" container">
+            <h1 class="title-questions">JavaScript Quiz</h1>
+            <p id="starting-text">Answer these front-end coding questions in the given time. Get an answer wrong, lose some time. Press 
+                start to begin.
+            </p>
+            <ol id="answers">
                 <li id="answer1"></li>
                 <li id="answer2"></li>
                 <li id="answer3"></li>
                 <li id="answer4"></li>
             </ol>
-        </section>
+            <input type="button" class="submit-button" value="Start Game"/>
+        </form>
 
 
 
 
 
-
+        <script src="./assets/script.js"></script>
     </body>
 </html>
