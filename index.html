@@ -11,7 +11,7 @@
     <body>
         <header>
             <p id="highscores">View Highscores</p>
-            <p id="timer" style="text-align:end;"></p>
+            <p id="timer" style="text-align:end;">60</p>
         </header>
         <form class=" container">
             <h1 class="title-questions">JavaScript Quiz</h1>
@@ -19,11 +19,13 @@
                 start to begin.
             </p>
             <ol id="answers">
-                <li id="answer1"></li>
-                <li id="answer2"></li>
-                <li id="answer3"></li>
-                <li id="answer4"></li>
+                <li id="answer1" onclick="answerClick(this)"></li>
+                <li id="answer2" onclick="answerClick(this)"></li>
+                <li id="answer3" onclick="answerClick(this)"></li>
+                <li id="answer4" onclick="answerClick(this)"></li>
             </ol>
+            <label for="initials" id="enter-initials">Enter Initials</label>
+            <input type="text" id="initials"/>
             <input type="button" class="submit-button" value="Start Game"/>
         </form>
 
