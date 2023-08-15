@@ -18,15 +18,19 @@
             <p id="starting-text">Answer these front-end coding questions in the given time. Get an answer wrong, lose some time. Press 
                 start to begin.
             </p>
-            <ol id="answers">
-                <li id="answer1" onclick="answerClick(this)"></li>
-                <li id="answer2" onclick="answerClick(this)"></li>
-                <li id="answer3" onclick="answerClick(this)"></li>
-                <li id="answer4" onclick="answerClick(this)"></li>
-            </ol>
+            <div id="ordered-list">
+                <ol id="answers" type="a">
+                    <li id="answer1" onclick="answerClick(this)"></li>
+                    <li id="answer2" onclick="answerClick(this)"></li>
+                    <li id="answer3" onclick="answerClick(this)"></li>
+                    <li id="answer4" onclick="answerClick(this)"></li>
+                </ol>
+            </div>
             <label for="initials" id="enter-initials">Enter Initials</label>
-            <input type="text" id="initials"/>
-            <input type="button" class="submit-button" value="Start Game"/>
+            <input type="text" id="initials" required minlength="1" maxlength="3"/>
+            <input type="button" id="enter" value="Enter"/>
+            <input type="button" id="start-button" value="Start Game"/>
+            <input type="button" id="submit-button" value="Submit"/>
         </form>
 
 
