@@ -30,7 +30,8 @@ function setTimer() {
         time.textContent = secondsLeft;
         secondsLeft--;
 
-        if (secondsLeft === -1) {
+        if (secondsLeft < 0) {
+            time.textContent = 0;
             clearInterval(timerSet);
             endGame();
         }
@@ -182,3 +183,4 @@ restart.style.display = "none";
 start.addEventListener("click", pressStart);
 highscores.addEventListener("click", showHighScore);
 
+// need to fix where you lose time below 10 seconds. it goes negative, just need to end game
