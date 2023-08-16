@@ -130,7 +130,12 @@ function setHighScore() {
             window.alert("Please enter your initials");
         }
         else {
-            if (!(localStorage.getItem("high-score")) || (score > parsed.finalScore)){
+            if (!(localStorage.getItem("high-score"))) {
+                high.initials = initials.value;
+                high.finalScore = score
+                localStorage.setItem("high-score", JSON.stringify(high));
+            }
+            else if ((parsed) && (score > parsed.finalScore)) {
                 high.initials = initials.value;
                 high.finalScore = score
                 localStorage.setItem("high-score", JSON.stringify(high));
@@ -146,7 +151,13 @@ function setHighScore() {
 function showHighScore(event) {
     var pop = document.querySelector("#highscore-pop");
     var parsed = JSON.parse(localStorage.getItem("high-score"));
-    pop.textContent = "The highest score is: " + parsed.initials + " with " + parsed.finalScore + " points";
+    if (!parsed) {
+        pop.textContent = "No Highscore"
+    }
+    else {
+        pop.textContent = "The highest score is: " + parsed.initials + " with " + parsed.finalScore + " points";
+    }
+    
 }
 
 function askRestart() {

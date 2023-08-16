@@ -58,10 +58,10 @@ h1 {
 #submit-button, #start-button, #enter, #restart-button {
     margin: 20px;
     padding: 5px 10px;
-    font-weight: bold;
     background-color:brown;
     color:bisque;
     border-radius: 5px;
+    font-size: 15px;
     
 }
 
