@@ -3,11 +3,14 @@ var time = document.querySelector("#timer");
 var start = document.querySelector("#start-button");
 var submit = document.querySelector("#submit-button");
 var enter = document.querySelector("#enter");
+var restart = document.querySelector("#restart-button");
 var initials = document.querySelector("#initials");
 var initialsText = document.querySelector("#enter-initials")
 var questionTitle = document.querySelector(".title-questions");
 var answerList = document.querySelector("#answers");
 var text = document.querySelector("#starting-text");
+var wrongOrRight = document.querySelector("#correct-wrong");
+var selectedStyle = "blue";
 var index = 0;
 var secondsLeft = 59;
 var score = 0;
@@ -26,10 +29,9 @@ function setTimer() {
         time.textContent = secondsLeft;
         secondsLeft--;
 
-        if (secondsLeft === 0) {
+        if (secondsLeft === -1) {
             clearInterval(timerSet);
             endGame();
-            // need to end game when timer ends
         }
 
     }, 1000);
@@ -38,10 +40,10 @@ function setTimer() {
 function answerClick(click) {
     for (var i=0; i<listAnswers.length; i++) {
         if (listAnswers[i] === click) {
-            listAnswers[i].style.border = "2px solid purple";
+            listAnswers[i].style.color = selectedStyle;
         }
         else {
-            listAnswers[i].style.border = "0px";
+            listAnswers[i].style.color = "black";
         }
 
     }  
@@ -64,15 +66,29 @@ function gamePlay() {
 }
 
 function pressSubmit(event) {
-    if (index<QandA.length){    
+    if (index<QandA.length){   
+        var answerChosen = false;
+        listAnswers.forEach((option) => {
+            if (option.style.color === selectedStyle) {
+            answerChosen = true;
+            }
+        });
+
+        if (!answerChosen) {
+            return;
+        }
 
         for (var i=0; i<listAnswers.length; i++) {
-            if ((listAnswers[i].textContent === QandA[index].correct) && (listAnswers[i].style.border === "2px solid purple")) {
+            
+            if ((listAnswers[i].textContent === QandA[index].correct) && (listAnswers[i].style.color === selectedStyle)) {
                 score += 10
+                document.querySelector("#userScore").textContent = "Score: " + score;
+                wrongOrRight.textContent = "Correct!"
                 
             }
-            else if ((listAnswers[i].textContent === QandA[index].correct) && (listAnswers[i].style.border !== "2px solid purple")) {
+            else if ((listAnswers[i].textContent === QandA[index].correct) && (listAnswers[i].style.color !== selectedStyle)) {
                 secondsLeft -= 10;
+                wrongOrRight.textContent = "Wrong!"
             }
                 
         }
@@ -92,8 +108,9 @@ function pressStart(event) {
     
 
 function endGame() {
+    secondsLeft = 0;
     submit.style.display = "none";
-    answerList.textContent = "";
+    answerList.style.display = "none";
     questionTitle.textContent = "Game Over!";
     text.textContent = "Your final score is " + score;
     initialsText.style.display = "inline";
@@ -103,10 +120,10 @@ function endGame() {
 }
 
 
-
 function setHighScore() {
     var high = {initials:"", finalScore: 0 };
     var parsed = JSON.parse(localStorage.getItem("high-score"));
+
     enter.addEventListener("click", function(){
         if (initials.value === ""){
             window.alert("Please enter your initials");
@@ -117,9 +134,29 @@ function setHighScore() {
                 high.finalScore = score
                 localStorage.setItem("high-score", JSON.stringify(high));
             }
+            askRestart();
+            
         }
         
-    })
+        
+    });
+}
+
+function showHighScore(event) {
+    var pop = document.querySelector("#highscore-pop");
+    var parsed = JSON.parse(localStorage.getItem("high-score"));
+    pop.textContent = "The highest score is: " + parsed.initials + " with " + parsed.finalScore + " points";
+}
+
+function askRestart() {
+    wrongOrRight.textContent = "";
+    restart.style.display = "inline";
+    initials.style.display = "none";
+    initialsText.style.display = "none";
+    enter.style.display = "none";
+    questionTitle.textContent = "Would you like to play again?";
+    text.textContent = "Press enter to start a new game.";
+    
 }
 
 
@@ -128,18 +165,14 @@ initialsText.style.display = "none";
 initials.style.display = "none";
 submit.style.display = "none";
 enter.style.display = "none";
+restart.style.display = "none";
     
 start.addEventListener("click", pressStart);
+highscores.addEventListener("click", showHighScore);
 
 
 
 
-// need to store selected answer and add it to score when submit is pressed VVVVV
-// need to make buttons numbered and clickable VVVVV
-// keep track of score VVVVV
-// keep track of high scores VVVV
 // better styling
-// make the mouse a different selector when hovering over answers
-// need to make "View Highscores" a button to show the highscore
-// after entering the initials and highscore, ask the user if they want to play again. If yes, refresh page.
-// need to make event listeners for the enter key. This is for all buttons
+// need to make event listeners for the enter key. This is for all subit or enter buttons ---- If there is time
+// Change the topic of the quiz to Music Theory Quiz - test the knowledge of different key signatures

@@ -10,7 +10,9 @@
 
     <body>
         <header>
-            <p id="highscores">View Highscores</p>
+            <button id="highscores" popovertarget="highscore-pop">View Highscores</button>
+            <dialog popover id="highscore-pop"></dialog>
+            <p id="userScore">Score: 0</p>
             <p id="timer" style="text-align:end;">60</p>
         </header>
         <form class=" container">
@@ -27,11 +29,17 @@
                 </ol>
             </div>
             <label for="initials" id="enter-initials">Enter Initials</label>
-            <input type="text" id="initials" required minlength="1" maxlength="3"/>
+            <input type="text" id="initials" required minlength="1" maxlength="3" placeholder="Your initals here" 
+            onkeypress="if (event.keyCode === 13){return false;}"/>
             <input type="button" id="enter" value="Enter"/>
             <input type="button" id="start-button" value="Start Game"/>
             <input type="button" id="submit-button" value="Submit"/>
+            <input type="submit" id="restart-button" value = "Enter"/>
         </form>
+        <section>
+            <p id="correct-wrong"></p>
+        </section>
+
 
 
 
