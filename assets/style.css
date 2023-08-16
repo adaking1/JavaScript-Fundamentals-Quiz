@@ -1,3 +1,7 @@
+:root {
+    --shadow: #888888
+}
+
 
 body {
     background-color: bisque;
@@ -14,7 +18,7 @@ header {
 #highscores {
     background-color: lightblue;
     border-radius: 5px;
-    box-shadow: 2px 2px 5px #888888;
+    box-shadow: 2px 2px 5px var(--shadow);
 }
 
 #highscore-pop {
@@ -24,7 +28,7 @@ header {
     background-color: lightcoral;
     border-radius: 5px;
     border: 2px solid darkmagenta;
-    box-shadow: 5px 5px 5px #888888;
+    box-shadow: 5px 5px 5px var(--shadow);
 }
 
 
@@ -32,7 +36,7 @@ form {
     border: 1px solid black;
     background-color: lightsalmon;
     border-radius: 10px;
-    box-shadow: 10px 10px 10px #888888;
+    box-shadow: 10px 10px 10px var(--shadow);
     text-align: center;
     width: 55%;
     height: 55%;
@@ -47,6 +51,10 @@ h1 {
     padding: 5px 25px 40px 25px;
 }
 
+#starting-text {
+    line-height: 25px;
+}
+
 #submit-button, #start-button, #enter, #restart-button {
     margin: 20px;
     padding: 5px 10px;
@@ -57,7 +65,7 @@ h1 {
     
 }
 
-#submit-button, #start-button, #enter, #restart-button, #highscores, li, :hover {
+#submit-button, #start-button, #enter, #restart-button, #highscores, li:hover {
     cursor: pointer;
 }
 
@@ -79,7 +87,6 @@ ol {
 
 li {
     padding: 5px;
-    
 }
 
 section {

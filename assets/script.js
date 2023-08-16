@@ -15,10 +15,11 @@ var index = 0;
 var secondsLeft = 59;
 var score = 0;
 
-var QandA = [{question: "Which data type is NOT normally used in JavaScript?", answers: ["boolean", "string", "object", "dictionary"], correct: "dictionary"}, 
-            {question: "What keyword is used to declare a variable?", answers: ["function", "var", "int", "for"], correct: "var"}, 
-            {question: "Which of the following is a correct way to declare a function named 'function1'?", answers: ["function function1()", "var(function1)", "function = function1()", "var = function1()"], correct: "function function1()"}, 
-            {question: "Which character is used to separate array items?", answers: [":", ",", "-", "."], correct: ","}]
+var QandA = [{question: "How many sharps are there in the key of D major", answers: ["0", "1", "2", "3"], correct: "2"}, 
+            {question: "Which of these pairs of keys have the same key signature?", answers: ["G major/e minor", "D major/e minor", "F major/f minor", "B major/c# minor"], correct: "G major/e minor"}, 
+            {question: "How many flats are in the key of E flat?", answers: ["0", "1", "2", "3"], correct: "3"}, 
+            {question: "How many sharps are in the key of C# minor", answers: ["0", "2", "4", "6"], correct: "4"},
+            {question: "What is correct order of major keys starting with 0 sharps and ending with 7 sharps?", answers: ["C, F, B flat, E flat, A flat, D flat, G flat, C flat", "C, G, D, A, E, B, F#, C#", "F, C, G, D, A, E, B, f#", "C, E, G, B, D, F, A, C#"], correct: "C, G, D, A, E, B, F#, C#"}];
 
 var listAnswers = [document.querySelector("#answer1"), document.querySelector("#answer2"), document.querySelector("#answer3"), document.querySelector("#answer4")];
 
@@ -170,9 +171,3 @@ restart.style.display = "none";
 start.addEventListener("click", pressStart);
 highscores.addEventListener("click", showHighScore);
 
-
-
-
-// better styling
-// need to make event listeners for the enter key. This is for all subit or enter buttons ---- If there is time
-// Change the topic of the quiz to Music Theory Quiz - test the knowledge of different key signatures
