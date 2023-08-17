@@ -1,4 +1,4 @@
-# JavaScript-Fundamentals-Quiz
+# Music-Theory-Fundamentals-Quiz
 
 ![image](https://github.com/adaking1/MusicTheory-KeySignature-Quiz/assets/137830553/d9dca50c-8cba-42f7-924d-89f3e10bd9ec)
 
