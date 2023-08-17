@@ -9,13 +9,15 @@
     </head>
 
     <body>
+
         <header>
             <button id="highscores" popovertarget="highscore-pop">View Highscore</button>
             <dialog popover id="highscore-pop"></dialog>
             <p id="userScore">Score: 0</p>
             <p id="timer" style="text-align:end;">60</p>
         </header>
-        <form class=" container">
+
+        <form>
             <h1 class="title-questions">Music Theory Quiz</h1>
             <p id="starting-text">
                 Answer these questions about key signatures in 60 seconds.<br />
@@ -31,21 +33,18 @@
                 </ol>
             </div>
             <label for="initials" id="enter-initials">Enter Initials</label>
+            <!-- added inline JavaScript to disable restarting the page when enter is pressed for this text input -->
             <input type="text" id="initials" required minlength="1" maxlength="3" placeholder="Your initals here" 
             onkeypress="if (event.keyCode === 13){return false;}"/>
-            <input type="button" id="enter" value="Enter"/>
+            <input type="button" id="enter" value="Okay"/>
             <input type="button" id="start-button" value="Start"/>
             <input type="button" id="submit-button" value="Submit"/>
-            <input type="submit" id="restart-button" value = "Enter"/>
+            <input type="submit" id="restart-button" value = "Start Again"/>
         </form>
+
         <section>
             <p id="correct-wrong"></p>
         </section>
-
-
-
-
-
 
         <script src="./assets/script.js"></script>
     </body>
